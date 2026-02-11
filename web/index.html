@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepReaL Gomoku</title>
+    <meta name="description" content="Play Gomoku against DeepReaL's MCTS engine — entirely in your browser via WebAssembly.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚫</text></svg>">
+</head>
+<body>
+
+<div class="app-container">
+    
+    <!-- Board Area -->
+    <div class="board-area">
+        <div class="canvas-wrapper">
+            <canvas id="board-canvas"></canvas>
+        </div>
+    </div>
+
+    <!-- Side Panel -->
+    <div class="side-panel">
+        
+        <!-- Brand -->
+        <div class="glass-card brand">
+            <div class="brand-title">DeepReaL Gomoku</div>
+            <div class="brand-subtitle">MCTS Engine · WebAssembly</div>
+        </div>
+
+        <!-- Status -->
+        <div class="glass-card status-card">
+            <div class="card-title">Status</div>
+            <div id="status-text">Loading engine...</div>
+            <div id="move-count">Move 0</div>
+            <div id="thinking-indicator">
+                <div class="thinking-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <span class="thinking-label">Thinking</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="glass-card">
+            <div class="card-title">Settings</div>
+            <div class="control-group">
+                <div class="control-row">
+                    <span class="control-label">AI Time</span>
+                    <div class="select-wrapper">
+                        <select id="movetime-select">
+                            <option value="0.5">0.5s</option>
+                            <option value="1" selected>1s</option>
+                            <option value="5">5s</option>
+                            <option value="30">30s</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-row">
+                    <span class="control-label">Play As</span>
+                    <div class="select-wrapper">
+                        <select id="side-select">
+                            <option value="0" selected>Black (1st)</option>
+                            <option value="1">White (2nd)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Game -->
+        <div class="glass-card" style="text-align: center;">
+            <button id="new-game-btn" class="btn btn-primary btn-block">
+                <span class="btn-icon">↻</span>
+                New Game
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Result Overlay -->
+<div id="result-overlay">
+    <div class="result-content">
+        <div id="result-text">You Win!</div>
+        <p class="result-subtitle">Click "New Game" to play again</p>
+        <button class="btn btn-primary" onclick="document.getElementById('result-overlay').classList.remove('visible'); document.getElementById('new-game-btn').click();">
+            <span class="btn-icon">↻</span>
+            Play Again
+        </button>
+    </div>
+</div>
+
+<!-- App Script (module) -->
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>

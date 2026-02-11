@@ -1,0 +1,15 @@
+# Emscripten SDK (local install — re-run `emsdk install latest && emsdk activate latest`)
+emsdk/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build artifacts (WASM output is committed for GitHub Pages)
+# web/wasm/

@@ -1,0 +1,11 @@
+# Build artifacts
+obj/
+gomoku
+demo
+test
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
