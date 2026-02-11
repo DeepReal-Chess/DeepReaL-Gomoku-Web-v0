@@ -1,5 +1,7 @@
 # DeepReaL Gomoku Web
 
+**Visit Live Site:** https://deepreal-chess.github.io/DeepReaL-Gomoku-Web-v0/
+
 A fully client-side Gomoku (Five-in-a-Row) game that runs the DeepReaL MCTS engine directly in the browser via WebAssembly. No servers, no APIs — just pure WASM performance.
 
 ![Gomoku Web](https://img.shields.io/badge/Engine-MCTS%20%2B%20UCB1-blue)
